@@ -19,6 +19,7 @@ import com.nostra13.universalimageloader.core.display.FadeInBitmapDisplayer;
 import com.nostra13.universalimageloader.core.listener.ImageLoadingListener;
 
 import org.apache.http.Header;
+import org.jsoup.Jsoup;
 
 /**
  * Created by Omar on 27/11/2014.
@@ -70,6 +71,15 @@ public class Statics {
         return currentUser != null;
     }
 
+    public static String wrap(String text, int chars){
+        return text.length() < chars
+                ? text
+                : String.format("%s...",text.substring(0, chars-3));
+    }
+
+    public static String html2text(String html) {
+        return Jsoup.parse(html).text();
+    }
 
     public static void imageLoaderMemoryCache(Context context, final ImageView img, final int failImgID, String url)
     {
@@ -77,7 +87,7 @@ public class Statics {
         ImageLoaderConfiguration config=new ImageLoaderConfiguration.Builder(context)
                 .memoryCacheExtraOptions(100, 100) // max width, max height
                 .threadPoolSize(5)
-                .threadPriority(Thread.NORM_PRIORITY+1)
+                .threadPriority(Thread.NORM_PRIORITY + 1)
                 .denyCacheImageMultipleSizesInMemory()
                 .tasksProcessingOrder(QueueProcessingType.FIFO)
                 .defaultDisplayImageOptions(DisplayImageOptions.createSimple())

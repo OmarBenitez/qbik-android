@@ -1,13 +1,13 @@
 package com.app.qbik.qbik.home;
 
 import android.content.Context;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -22,9 +22,6 @@ import com.loopj.android.http.AsyncHttpResponseHandler;
 
 import org.apache.http.Header;
 
-import java.io.InputStream;
-import java.net.URL;
-
 public class HomePubsFragment extends Fragment {
 
     ListView lv;
@@ -34,7 +31,7 @@ public class HomePubsFragment extends Fragment {
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 
-		rootView = inflater.inflate(R.layout.fragment_games, container, false);
+		rootView = inflater.inflate(R.layout.fragment_home_pubs, container, false);
 
         lv = (ListView) rootView.findViewById(R.id.listProds);
 
@@ -81,14 +78,22 @@ public class HomePubsFragment extends Fragment {
                     .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             View rowView = inflater.inflate(R.layout.simple_list_item, parent, false);
 
-            TextView titulo = (TextView) rowView.findViewById(R.id.title);
+            final TextView titulo = (TextView) rowView.findViewById(R.id.title);
             TextView contenido = (TextView) rowView.findViewById(R.id.content);
             ImageView img = (ImageView) rowView.findViewById(R.id.banner);
+            Button btn = (Button) rowView.findViewById(R.id.btnVerMas);
 
-            System.out.println(titulo);
+            btn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    
+                }
+            });
 
-            titulo.setText("Nombre: "+values[position].titulo);
-            contenido.setText("Cantidad: "+values[position].contenido);
+            System.out.println(values[position].idAsStr);
+
+            titulo.setText(values[position].titulo);
+            contenido.setText(Statics.wrap(Statics.html2text(values[position].contenido), 50));
             Statics.imageLoaderMemoryCache(getActivity(), img, R.drawable.logo_blak, values[position].banner);
 
             return rowView;
