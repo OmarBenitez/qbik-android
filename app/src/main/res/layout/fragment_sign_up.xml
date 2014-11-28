@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#fff"
+    android:padding="10dp"
+    >
+
+    <EditText
+        android:id="@+id/txtSignUpNombre"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:hint="Nombre"
+        android:layout_marginTop="5sp"
+        android:background="@drawable/signup_edit_text"
+        android:padding="8dp"
+        android:textColor="#333"
+        android:textColorHint="#333"
+        />
+
+    <EditText
+        android:id="@+id/txtSignUpCorreo"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:hint="Correo"
+        android:layout_marginTop="5sp"
+        android:background="@drawable/signup_edit_text"
+        android:padding="8dp"
+        android:textColor="#333"
+        android:textColorHint="#333"
+        android:layout_below="@+id/txtSignUpNombre"
+        />
+
+    <EditText
+        android:id="@+id/txtSignUpP1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:hint="Contraseña"
+        android:layout_marginTop="5sp"
+        android:background="@drawable/signup_edit_text"
+        android:padding="8dp"
+        android:textColor="#333"
+        android:textColorHint="#333"
+        android:layout_below="@+id/txtSignUpCorreo"
+        />
+
+    <EditText
+        android:id="@+id/txtSignUpP2"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:hint="Repetir contraseña"
+        android:layout_marginTop="5sp"
+        android:background="@drawable/signup_edit_text"
+        android:padding="8dp"
+        android:textColor="#333"
+        android:textColorHint="#333"
+        android:layout_below="@+id/txtSignUpP1"
+        />
+
+    <Button
+        android:layout_marginTop="5sp"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Registrarse"
+        android:id="@+id/btnSignUp"
+        android:background="@drawable/login_button"
+        android:textColor="#fff"
+        android:layout_below="@+id/txtSignUpP2"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        />
+
+
+</RelativeLayout>
