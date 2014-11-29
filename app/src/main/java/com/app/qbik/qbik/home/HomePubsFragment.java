@@ -17,6 +17,7 @@ import android.widget.Toast;
 
 import com.app.qbik.qbik.R;
 import com.app.qbik.qbik.Statics;
+import com.app.qbik.qbik.models.Comentario;
 import com.app.qbik.qbik.models.Publicacion;
 import com.google.gson.Gson;
 import com.loopj.android.http.AsyncHttpClient;
@@ -41,7 +42,7 @@ public class HomePubsFragment extends Fragment {
 
 
 
-        client.get("http://108.61.205.173:9000/publicaciones/list", new AsyncHttpResponseHandler() {
+        client.get("http://108.61.205.173/publicaciones/list", new AsyncHttpResponseHandler() {
             @Override
             public void onSuccess(int i, Header[] headers, byte[] bytes) {
                 Gson g = new Gson();
@@ -88,7 +89,7 @@ public class HomePubsFragment extends Fragment {
             btn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    ViewPager p = (ViewPager) getActivity().findViewById(R.id.pager);
+                    final ViewPager p = (ViewPager) getActivity().findViewById(R.id.pager);
 
                     TextView title = (TextView) getActivity().findViewById(R.id.showTitle);
                     ImageView banner = (ImageView) getActivity().findViewById(R.id.showBanner);
@@ -97,8 +98,13 @@ public class HomePubsFragment extends Fragment {
                     banner.setImageDrawable(img.getDrawable());
                     title.setText(titulo.getText());
                     content.setText(Statics.html2text(values[position].contenido));
-
+                    Statics.currentPub = values[position];
                     p.setCurrentItem(1);
+
+                    AsyncHttpClient client = new AsyncHttpClient();
+
+                    System.out.println(values[position].comentarios);
+
                 }
             });
 

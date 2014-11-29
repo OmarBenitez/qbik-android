@@ -14,7 +14,7 @@ public class DetailsFragment extends Fragment {
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 
-		View rootView = inflater.inflate(R.layout.fragment_movies, container, false);
+		View rootView = inflater.inflate(R.layout.fragment_detalle, container, false);
 		
 		return rootView;
 	}

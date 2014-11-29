@@ -5,6 +5,7 @@ import android.graphics.Bitmap;
 import android.view.View;
 import android.widget.ImageView;
 
+import com.app.qbik.qbik.models.Publicacion;
 import com.app.qbik.qbik.models.Usuario;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
@@ -30,6 +31,8 @@ public class Statics {
 
     public static Usuario currentUser;
 
+    public static Publicacion currentPub;
+
     public static void logIn(final Usuario usuario){
         AsyncHttpClient client = new AsyncHttpClient();
         RequestParams params = new RequestParams();
@@ -37,6 +40,7 @@ public class Statics {
         params.add("password", usuario.password);
 
         currentUser = usuario;
+
 
 //        client.post(String.format("%s%s", BASE_URL, "secure/login"), params, new AsyncHttpResponseHandler() {
 //            @Override
@@ -95,7 +99,7 @@ public class Statics {
         imageLoader.init(config);
 
         DisplayImageOptions options = new DisplayImageOptions.Builder()
-                .showImageForEmptyUri(R.drawable.logo_blak)
+                .showImageForEmptyUri(R.drawable.default_img)
                 .cacheInMemory(true)
                 .imageScaleType(ImageScaleType.IN_SAMPLE_INT)
                 .bitmapConfig(Bitmap.Config.RGB_565)
