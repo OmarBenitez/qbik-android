@@ -3,6 +3,8 @@ package com.app.qbik.qbik.home;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -79,14 +81,24 @@ public class HomePubsFragment extends Fragment {
             View rowView = inflater.inflate(R.layout.simple_list_item, parent, false);
 
             final TextView titulo = (TextView) rowView.findViewById(R.id.title);
-            TextView contenido = (TextView) rowView.findViewById(R.id.content);
-            ImageView img = (ImageView) rowView.findViewById(R.id.banner);
+            final TextView contenido = (TextView) rowView.findViewById(R.id.content);
+            final ImageView img = (ImageView) rowView.findViewById(R.id.banner);
             Button btn = (Button) rowView.findViewById(R.id.btnVerMas);
 
             btn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    
+                    ViewPager p = (ViewPager) getActivity().findViewById(R.id.pager);
+
+                    TextView title = (TextView) getActivity().findViewById(R.id.showTitle);
+                    ImageView banner = (ImageView) getActivity().findViewById(R.id.showBanner);
+                    TextView content = (TextView) getActivity().findViewById(R.id.showContent);
+
+                    banner.setImageDrawable(img.getDrawable());
+                    title.setText(titulo.getText());
+                    content.setText(Statics.html2text(values[position].contenido));
+
+                    p.setCurrentItem(1);
                 }
             });
 

@@ -3,14 +3,40 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" 
-    android:background="#17df0d">
-    
-    <TextView android:layout_width="fill_parent"
+    android:background="#fff">
+
+    <ImageView
+        android:id="@+id/showBanner"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:src="@drawable/logo_blak"
+        android:adjustViewBounds="true"
+        android:scaleType="centerCrop"
+        />
+
+    <TextView
+        android:id="@+id/showTitle"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="Design Movies Screen"
-        android:textSize="20dp"
-        android:layout_centerInParent="true"/>
+        android:text="Example application"
+        android:textSize="30sp"
+        android:layout_below="@+id/showBanner"
+        android:layout_centerHorizontal="true"
+        />
+
+    <TextView
+        android:layout_marginTop="10dp"
+        android:id="@+id/showContent"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="left"
+        android:text="Example application"
+        android:textSize="15sp"
+        android:layout_below="@+id/showTitle"
+        android:layout_centerHorizontal="true"
+        />
     
 
 </RelativeLayout>

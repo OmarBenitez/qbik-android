@@ -14,6 +14,8 @@ public class HomeTabsPagerAdapter extends FragmentPagerAdapter {
 		super(fm);
 	}
 
+
+
 	@Override
 	public Fragment getItem(int index) {
 
